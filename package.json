@@ -15,6 +15,7 @@
     "lint": "pnpm --recursive run lint"
   },
   "devDependencies": {
+    "@types/node": "^22.13.4",
     "typescript": "^5.7.3"
   }
 }
