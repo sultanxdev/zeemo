@@ -16,7 +16,8 @@ approvalsRouter.get('/', (req: Request, res: Response) => {
 
 // GET /v1/approvals/:id
 approvalsRouter.get('/:id', (req: Request, res: Response) => {
-  const approval = store.approvals.get(req.params.id);
+  const id = String(req.params.id);
+  const approval = store.approvals.get(id);
   if (!approval || approval.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Approval request not found', 'NOT_FOUND'));
     return;
@@ -26,7 +27,8 @@ approvalsRouter.get('/:id', (req: Request, res: Response) => {
 
 // POST /v1/approvals/:id/approve
 approvalsRouter.post('/:id/approve', (req: Request, res: Response) => {
-  const approval = store.approvals.get(req.params.id);
+  const id = String(req.params.id);
+  const approval = store.approvals.get(id);
   if (!approval || approval.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Approval request not found', 'NOT_FOUND'));
     return;
@@ -94,7 +96,8 @@ approvalsRouter.post('/:id/approve', (req: Request, res: Response) => {
 
 // POST /v1/approvals/:id/reject
 approvalsRouter.post('/:id/reject', (req: Request, res: Response) => {
-  const approval = store.approvals.get(req.params.id);
+  const id = String(req.params.id);
+  const approval = store.approvals.get(id);
   if (!approval || approval.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Approval request not found', 'NOT_FOUND'));
     return;

@@ -33,7 +33,8 @@ incidentsRouter.get('/', (req: Request, res: Response) => {
 
 // GET /v1/incidents/:id
 incidentsRouter.get('/:id', (req: Request, res: Response) => {
-  const incident = store.incidents.get(req.params.id);
+  const id = String(req.params.id);
+  const incident = store.incidents.get(id);
   if (!incident || incident.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Incident not found', 'NOT_FOUND'));
     return;

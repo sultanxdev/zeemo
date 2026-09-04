@@ -6,8 +6,8 @@ export const QUEUE_INVESTIGATIONS = 'zeemo.investigations';
 export const EXCHANGE_INCIDENTS = 'zeemo.incidents';
 
 class RabbitMQClient extends EventEmitter {
-  private connection: amqp.Connection | null = null;
-  private channel: amqp.Channel | null = null;
+  private connection: any = null;
+  private channel: any = null;
   private isConnected = false;
   private connectionAttempted = false;
 
