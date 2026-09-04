@@ -95,13 +95,13 @@ export function Sidebar() {
     <aside className="w-64 h-screen bg-card/60 backdrop-blur-md border-r border-border flex flex-col shrink-0 select-none">
       {/* Brand Header */}
       <div className="h-14 flex items-center px-5 border-b border-border gap-2.5">
-        <div className="h-7 w-7 rounded-md bg-blue-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
-          <Cpu className="h-4 w-4" />
+        <div className="size-7 rounded-lg bg-black border border-white/15 overflow-hidden flex items-center justify-center shrink-0 shadow-xs">
+          <img src="/logo.png" alt="Zeemo" className="size-full object-cover" />
         </div>
         <div className="flex flex-col">
           <span className="font-bold tracking-wider text-sm text-white flex items-center gap-1.5 font-mono">
             ZEEMO
-            <span className="text-[10px] px-1 py-0.2 rounded bg-blue-500/20 text-blue-400 font-normal">
+            <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-400 font-normal">
               v1.0
             </span>
           </span>
