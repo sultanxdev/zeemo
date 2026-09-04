@@ -14,7 +14,8 @@ runsRouter.get('/', (req: Request, res: Response) => {
 
 // GET /v1/runs/:id
 runsRouter.get('/:id', (req: Request, res: Response) => {
-  const run = store.runs.get(req.params.id);
+  const id = String(req.params.id);
+  const run = store.runs.get(id);
   if (!run || run.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Run not found', 'NOT_FOUND'));
     return;
@@ -24,7 +25,8 @@ runsRouter.get('/:id', (req: Request, res: Response) => {
 
 // GET /v1/runs/:id/trace - Full execution trace
 runsRouter.get('/:id/trace', (req: Request, res: Response) => {
-  const run = store.runs.get(req.params.id);
+  const id = String(req.params.id);
+  const run = store.runs.get(id);
   if (!run || run.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Run not found', 'NOT_FOUND'));
     return;

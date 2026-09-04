@@ -37,5 +37,6 @@ integrationsRouter.get('/', (_req: Request, res: Response) => {
 
 // POST /v1/integrations/:id/test
 integrationsRouter.post('/:id/test', (req: Request, res: Response) => {
-  res.json(successResponse({ integrationId: req.params.id, pingStatus: 'healthy', latencyMs: 42 }));
+  const id = String(req.params.id);
+  res.json(successResponse({ integrationId: id, pingStatus: 'healthy', latencyMs: 42 }));
 });

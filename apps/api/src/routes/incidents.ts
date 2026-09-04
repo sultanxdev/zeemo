@@ -94,7 +94,8 @@ incidentsRouter.post('/', (req: Request, res: Response) => {
 
 // PATCH /v1/incidents/:id
 incidentsRouter.patch('/:id', (req: Request, res: Response) => {
-  const incident = store.incidents.get(req.params.id);
+  const id = String(req.params.id);
+  const incident = store.incidents.get(id);
   if (!incident || incident.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Incident not found', 'NOT_FOUND'));
     return;
@@ -114,7 +115,8 @@ incidentsRouter.patch('/:id', (req: Request, res: Response) => {
 
 // POST /v1/incidents/:id/investigate - Trigger an AI Investigation Run
 incidentsRouter.post('/:id/investigate', async (req: Request, res: Response) => {
-  const incident = store.incidents.get(req.params.id);
+  const id = String(req.params.id);
+  const incident = store.incidents.get(id);
   if (!incident || incident.workspaceId !== req.workspaceId) {
     res.status(404).json(errorResponse('Incident not found', 'NOT_FOUND'));
     return;
